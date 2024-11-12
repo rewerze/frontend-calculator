@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <button id="CalcIcon" onclick="openCalc()" type="button">
+            <img src="calculator.png" alt="Számológép">
+        </button>
+        
+        <div class="calc" id="calc">
+            <div class="header">
+                <h1 id="title">Calculator</h1>
+                <button type="button" id="close">✖</button>
+            </div>
+
+            <div class="display">
+                <div class="top" id="top-display">top placeH</div>
+                <div class="bottom" id="bot-display">bot placeH</div>
+            </div>
+
+            <div class="keyboard">
+                <button type="button" class="LightButton" id="clearAll">C</button>
+                <button type="button" class="LightButton" id="clear">CE</button>
+                <button type="button" class="LightButton" id="pow">x<sup>2</sup></button>
+                <button type="button" class="LightButton" id="divide">÷</button>
+
+                <button type="button" class="DarkButton" id="seven">7</button>
+                <button type="button" class="DarkButton" id="eight">8</button>
+                <button type="button" class="DarkButton" id="nine">9</button>
+                <button type="button" class="LightButton" id="multiply">×</button>
+                
+                <button type="button" class="DarkButton" id="four">4</button>
+                <button type="button" class="DarkButton" id="five">5</button>
+                <button type="button" class="DarkButton" id="six">6</button>
+                <button type="button" class="LightButton" id="minus">-</button>
+                
+                <button type="button" class="DarkButton" id="one">1</button>
+                <button type="button" class="DarkButton" id="two">2</button>
+                <button type="button" class="DarkButton" id="three">3</button>
+                <button type="button" class="LightButton" id="plus">+</button>
+
+                <button type="button" class="DarkButton" id="plus-minus">±</button>
+                <button type="button" class="DarkButton" id="null">0</button>
+                <button type="button" class="DarkButton" id="dot">.</button>
+                <button type="button" class="DarkButton" id="equal">=</button>
+            </div>
+        </div>
+    </div>
+        
+    <script src="script.js"></script>
+</body>
+</html>
