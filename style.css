@@ -32,11 +32,12 @@ img:hover {
     height: 5rem;
     flex-direction: column;
 
-    margin-right: px;
+    margin-right: 5px;
 }
 
 .top {
     font-size: 1rem;
+    color: gray;
 }
 
 .bottom {
@@ -66,15 +67,17 @@ img:hover {
     justify-content: center;
     display: flex;
     flex-direction: column;
-    width: 25%;
+    
+    width: 28rem;
     margin-left: auto;
     margin-right: auto;
     height: 35rem;
-
+    
     background-color: rgb(58, 58, 58);
     color: white;
-    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 18px 0px rgba(0,0,0,0.5);
     border: rgb(0, 139, 139) solid 1px;
+    visibility: hidden;
 }
 
 button {
@@ -87,14 +90,29 @@ button {
     background-color: rgb(102, 102, 102);
 }
 
+.LightButton:hover {
+    background-color: rgb(126, 126, 126);
+}
+
 .DarkButton {
     background-color: rgb(80, 80, 80);
+}
+
+.DarkButton:hover {
+    background-color: rgb(102, 102, 102);
 }
 
 #equal {
     background-color: rgb(0, 139, 139);
 }
 
+#equal:hover {
+    background-color: rgb(1, 150, 150);
+}
+
+
+
+/* GRID ELEMEK */
 #clearAll       {grid-area: 'C';}
 #clear          {grid-area: 'CE';}
 #pow            {grid-area: 'x2';}

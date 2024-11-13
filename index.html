@@ -15,39 +15,39 @@
         <div class="calc" id="calc">
             <div class="header">
                 <h1 id="title">Calculator</h1>
-                <button type="button" id="close">✖</button>
+                <button type="button" id="close" onclick="closeCalc()">✖</button>
             </div>
 
             <div class="display">
-                <div class="top" id="top-display">top placeH</div>
-                <div class="bottom" id="bot-display">bot placeH</div>
+                <div class="top" id="top-display"></div>
+                <div class="bottom" id="bot-display"></div>
             </div>
 
             <div class="keyboard">
-                <button type="button" class="LightButton" id="clearAll">C</button>
-                <button type="button" class="LightButton" id="clear">CE</button>
-                <button type="button" class="LightButton" id="pow">x<sup>2</sup></button>
-                <button type="button" class="LightButton" id="divide">÷</button>
+                <button type="button" class="LightButton" id="clearAll" onclick="clearAll()">C</button>
+                <button type="button" class="LightButton" id="clear" onclick="clearBot()">CE</button>
+                <button type="button" class="LightButton" id="pow" onclick="Pow()">x<sup>2</sup></button>
+                <button type="button" class="LightButton" id="divide" onclick="Divide()">÷</button>
 
-                <button type="button" class="DarkButton" id="seven">7</button>
-                <button type="button" class="DarkButton" id="eight">8</button>
+                <button type="button" class="DarkButton" id="seven" onclick="Seven()">7</button>
+                <button type="button" class="DarkButton" id="eight" onclick="Eight()">8</button>
                 <button type="button" class="DarkButton" id="nine">9</button>
-                <button type="button" class="LightButton" id="multiply">×</button>
+                <button type="button" class="LightButton" id="multiply" onclick="Multiply()">×</button>
                 
-                <button type="button" class="DarkButton" id="four">4</button>
-                <button type="button" class="DarkButton" id="five">5</button>
-                <button type="button" class="DarkButton" id="six">6</button>
-                <button type="button" class="LightButton" id="minus">-</button>
+                <button type="button" class="DarkButton" id="four" onclick="Four()">4</button>
+                <button type="button" class="DarkButton" id="five" onclick="Five()">5</button>
+                <button type="button" class="DarkButton" id="six" onclick="Six()">6</button>
+                <button type="button" class="LightButton" id="minus" onclick="Minus()">-</button>
                 
-                <button type="button" class="DarkButton" id="one">1</button>
-                <button type="button" class="DarkButton" id="two">2</button>
-                <button type="button" class="DarkButton" id="three">3</button>
-                <button type="button" class="LightButton" id="plus">+</button>
+                <button type="button" class="DarkButton" id="one" onclick="One()">1</button>
+                <button type="button" class="DarkButton" id="two" onclick="Two()">2</button>
+                <button type="button" class="DarkButton" id="three" onclick="Three()">3</button>
+                <button type="button" class="LightButton" id="plus" onclick="Plus()">+</button>
 
-                <button type="button" class="DarkButton" id="plus-minus">±</button>
-                <button type="button" class="DarkButton" id="null">0</button>
-                <button type="button" class="DarkButton" id="dot">.</button>
-                <button type="button" class="DarkButton" id="equal">=</button>
+                <button type="button" class="DarkButton" id="plus-minus" onclick="PlusMinus()">±</button>
+                <button type="button" class="DarkButton" id="null" onclick="Zero()">0</button>
+                <button type="button" class="DarkButton" id="dot" onclick="Dot()">.</button>
+                <button type="button" class="DarkButton" id="equal" onclick="Equal()">=</button>
             </div>
         </div>
     </div>
