@@ -27,25 +27,25 @@
                 <button type="button" class="LightButton" id="clearAll" onclick="clearAll()">C</button>
                 <button type="button" class="LightButton" id="clear" onclick="clearBot()">CE</button>
                 <button type="button" class="LightButton" id="pow" onclick="Pow()">x<sup>2</sup></button>
-                <button type="button" class="LightButton" id="divide" onclick="Divide()">÷</button>
+                <button type="button" class="LightButton" id="divide" onclick="Operator('÷')">÷</button>
 
-                <button type="button" class="DarkButton" id="seven" onclick="Seven()">7</button>
-                <button type="button" class="DarkButton" id="eight" onclick="Eight()">8</button>
-                <button type="button" class="DarkButton" id="nine">9</button>
-                <button type="button" class="LightButton" id="multiply" onclick="Multiply()">×</button>
+                <button type="button" class="DarkButton" id="seven" onclick="Digit(7, 'seven')">7</button>
+                <button type="button" class="DarkButton" id="eight" onclick="Digit(8)">8</button>
+                <button type="button" class="DarkButton" id="nine" onclick="Digit(9)">9</button>
+                <button type="button" class="LightButton" id="multiply" onclick="Operator('×')">×</button>
                 
-                <button type="button" class="DarkButton" id="four" onclick="Four()">4</button>
-                <button type="button" class="DarkButton" id="five" onclick="Five()">5</button>
-                <button type="button" class="DarkButton" id="six" onclick="Six()">6</button>
-                <button type="button" class="LightButton" id="minus" onclick="Minus()">-</button>
+                <button type="button" class="DarkButton" id="four" onclick="Digit(4)">4</button>
+                <button type="button" class="DarkButton" id="five" onclick="Digit(5)">5</button>
+                <button type="button" class="DarkButton" id="six" onclick="Digit(6)">6</button>
+                <button type="button" class="LightButton" id="minus" onclick="Operator('-')">-</button>
                 
-                <button type="button" class="DarkButton" id="one" onclick="One()">1</button>
-                <button type="button" class="DarkButton" id="two" onclick="Two()">2</button>
-                <button type="button" class="DarkButton" id="three" onclick="Three()">3</button>
-                <button type="button" class="LightButton" id="plus" onclick="Plus()">+</button>
+                <button type="button" class="DarkButton" id="one" onclick="Digit(1)">1</button>
+                <button type="button" class="DarkButton" id="two" onclick="Digit(2)">2</button>
+                <button type="button" class="DarkButton" id="three" onclick="Digit(3)">3</button>
+                <button type="button" class="LightButton" id="plus" onclick="Operator('+')">+</button>
 
-                <button type="button" class="DarkButton" id="plus-minus" onclick="PlusMinus()">±</button>
-                <button type="button" class="DarkButton" id="null" onclick="Zero()">0</button>
+                <button type="button" class="DarkButton" id="plus-to-minus" onclick="PlusToMinus()">±</button>
+                <button type="button" class="DarkButton" id="null" onclick="Digit(0)">0</button>
                 <button type="button" class="DarkButton" id="dot" onclick="Dot()">.</button>
                 <button type="button" class="DarkButton" id="equal" onclick="Equal()">=</button>
             </div>

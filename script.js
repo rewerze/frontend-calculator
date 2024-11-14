@@ -1,39 +1,39 @@
 var on = false;
 var topDisplay = "";
 var bottomDisplay = "";
-var equal = 0;
+var pow = "";
 
 document.addEventListener('keydown', (e) => {
     switch (e.code) {
-        case 'Digit0':
-            Zero();
+        case 'Numpad0':
+            Digit(0);
             break;
-        case 'Digit1':
-            One();
+        case 'Numpad1':
+            Digit(1);
             break;
-        case 'Digit2':
-            Two();
+        case 'Numpad2':
+            Digit(2);
             break;
-        case "Digit3":
-            Three();
+        case "Numpad3":
+            Digit(3);
             break;
-        case "Digit4":
-            Four();
+        case "Numpad4":
+            Digit(4);
             break;
-        case "Digit5":
-            Five();
+        case "Numpad5":
+            Digit(5);
             break;
-        case "Digit6":
-            Six();
+        case "Numpad6":
+            Digit(6);
             break;
-        case "Digit7":
-            Seven();
+        case "Numpad7":
+            Digit(7);
             break;
-        case "Digit8":
-            Eight();
+        case "Numpad8":
+            Digit(8);
             break;
-        case "Digit9":
-            Nine();
+        case "Numpad9":
+            Digit(9);
             break;
         case "Escape":
             clearAll();
@@ -42,10 +42,23 @@ document.addEventListener('keydown', (e) => {
             Equal();
             break;
         case "Backspace":
-            if (on) {
-                clearBot();
-            }
+            clearBot();
             break;
+        case "NumpadDivide":
+            Operator('÷');
+            break;
+        case "NumpadMultiply":
+            Operator('×');
+            break;
+        case "NumpadAdd":
+            Operator('+');
+            break;
+        case "NumpadSubtract":
+            Operator('-');
+            break;
+        case "NumpadDecimal":
+                Dot();
+                break;
     }
 })
 
@@ -53,160 +66,152 @@ document.addEventListener('keydown', (e) => {
 function openCalc() {
     on = true;
     document.getElementById('calc').style = "visibility: visible"
+    bottomDisplay = "0";
+    ChangeBotDisplay();
 }
 
 function closeCalc() {
     on = false;
     topDisplay = "";
     bottomDisplay = "";
+    ChangeBotDisplay();
+    ChangeTopDisplay();
     document.getElementById('calc').style = "visibility: hidden"
 }
 
-function botDisplay(char) {
-    document.getElementById('bot-display').textContent = char;
+function ChangeBotDisplay() {
+    document.getElementById('bot-display').textContent = bottomDisplay;
 }
-function toppDisplay(char) {
-    document.getElementById('top-display').textContent = char;
+function ChangeTopDisplay(char) {
+    document.getElementById('top-display').textContent = topDisplay;
 }
 
 function clearAll() {
     if (on) {
-        bottomDisplay = "";
+        bottomDisplay = "0";
         topDisplay = "";
-        botDisplay(bottomDisplay);
-        toppDisplay(topDisplay);
+        ChangeBotDisplay();
+        ChangeTopDisplay();
     }
 }
 
 function clearBot() {
-    bottomDisplay = "";
-    botDisplay(bottomDisplay);
+    bottomDisplay = "0";
+    ChangeBotDisplay();
 }
 
 function Pow() {
-    Operator("^");
-}
+    if (on) {
+        bottomDisplay = Math.pow(Number(bottomDisplay), 2);
+        bottomDisplay = bottomDisplay.toString();
+        ChangeBotDisplay();
+    }
 
-function Divide() {
-    Operator("÷")
-}
-function Multiply() {
-    Operator("×")
-}
-function Plus() {
-    Operator("+")
-}
-function Minus() {
-    Operator("-")
 }
 
 function Equal() {
     if (on) {
         switch (true) {
             case topDisplay.includes("+"):
-                equal = topDisplay + bottomDisplay;
-                toppDisplay("");
-                botDisplay(equal);
-                console.log("+")
+                topDisplay = topDisplay.replace("+", "");
+                topDisplay = Number(topDisplay);
+                bottomDisplay = Number(bottomDisplay);
+
+                bottomDisplay = topDisplay + bottomDisplay;
+                bottomDisplay = bottomDisplay.toString();
+                topDisplay = "";
+
+                ChangeTopDisplay();
+                ChangeBotDisplay();
                 break;
             case topDisplay.includes("-"):
-                equal = topDisplay - bottomDisplay;
-                toppDisplay("");
-                botDisplay(equal);
+                topDisplay = topDisplay.replace("-", "");
+                topDisplay = Number(topDisplay);
+                bottomDisplay = Number(bottomDisplay);
+
+                bottomDisplay = topDisplay - bottomDisplay;
+                bottomDisplay = bottomDisplay.toString();
+                topDisplay = "";
+
+                ChangeTopDisplay();
+                ChangeBotDisplay();
                 break;
             case topDisplay.includes("×"):
-                equal = topDisplay * bottomDisplay;
-                toppDisplay("");
-                botDisplay(equal);
+                topDisplay = topDisplay.replace("×", "");
+                topDisplay = Number(topDisplay);
+                bottomDisplay = Number(bottomDisplay);
+
+                bottomDisplay = topDisplay * bottomDisplay;
+                bottomDisplay = bottomDisplay.toString();
+                topDisplay = "";
+
+                ChangeTopDisplay();
+                ChangeBotDisplay();
                 break;
             case topDisplay.includes("÷"):
-                equal = topDisplay / bottomDisplay;
-                toppDisplay("");
-                botDisplay(equal);
-                break;
-            case topDisplay.includes("^"):
-                equal = Math.pow(topDisplay, bottomDisplay);
-                toppDisplay("");
-                botDisplay(equal);
+                topDisplay = topDisplay.replace("÷", "");
+                topDisplay = Number(topDisplay);
+                bottomDisplay = Number(bottomDisplay);
+
+                bottomDisplay = topDisplay / bottomDisplay;
+                bottomDisplay = bottomDisplay.toString();
+                topDisplay = "";
+
+                ChangeTopDisplay();
+                ChangeBotDisplay();
                 break;
             }
         }
-        console.log("hehe:(");
 }
 
 function Dot() {
     if (on && !bottomDisplay.includes('.')) {
-        bottomDisplay += ".";
-        botDisplay(bottomDisplay);
+        bottomDisplay = bottomDisplay + ".";
+        ChangeBotDisplay();
     }
 }
 
-function Zero() {
+function Digit(number) {
     if (on) {
-        bottomDisplay += "0"
-        botDisplay(bottomDisplay);
+        isZero();
+        bottomDisplay += number.toString();
+        ChangeBotDisplay();
     }
 }
-function One() {
-    if (on) {
-        bottomDisplay += "1"
-        botDisplay(bottomDisplay);
-    }
-}
-function Two() {
-    if (on) {
-        bottomDisplay += "2"
-        botDisplay(bottomDisplay);
-    }
-}
-function Three() {
-    if (on) {
-        bottomDisplay += "3"
-        botDisplay(bottomDisplay);
-    }
-}
-function Four() {
-    if (on) {
-        bottomDisplay += "4"
-        botDisplay(bottomDisplay);
-    }
-}
-function Five() {
-    if (on) {
-        bottomDisplay += "5"
-        botDisplay(bottomDisplay);
-    }
-}
-function Six() {
-    if (on) {
-        bottomDisplay += "6"
-        botDisplay(bottomDisplay);
-    }
-}
-function Seven() {
-    if (on) {
-        bottomDisplay += "7"
-        botDisplay(bottomDisplay);
-    }
-}
-function Eight() {
-    if (on) {
-        bottomDisplay += "8"
-        botDisplay(bottomDisplay);
-    }
-}
-function Nine() {
-    if (on) {
-        bottomDisplay += "9"
-        botDisplay(bottomDisplay);
+
+function PlusToMinus() {
+    if(on) {
+        if (!bottomDisplay.charAt(0).includes("-")) {
+            bottomDisplay = "-" + bottomDisplay;
+            ChangeBotDisplay();
+            console.log("plusz->minusz")
+        }
+        else {
+            bottomDisplay = bottomDisplay*-1;
+            bottomDisplay = bottomDisplay.toString();
+            ChangeBotDisplay();
+            console.log("minusz->plusz");
+        }
     }
 }
 
 function Operator(op) {
     if (on) {
-        topDisplay = bottomDisplay + op;
-        toppDisplay(topDisplay)
+        if (topDisplay == "") {
+            topDisplay = bottomDisplay + op;
+            ChangeTopDisplay();
+            bottomDisplay = "";
+            ChangeBotDisplay();
+        }
+        else {
+            topDisplay = topDisplay.replace(topDisplay.charAt(topDisplay.length - 1), op);
+            ChangeTopDisplay(topDisplay);
+        }
+    }
+}
+function isZero() {
+    if (bottomDisplay.charAt(0) == "0" && bottomDisplay.charAt(1) != ".") {
         bottomDisplay = "";
-        botDisplay(bottomDisplay)
+        ChangeBotDisplay();
     }
 }
